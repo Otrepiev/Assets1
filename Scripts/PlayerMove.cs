@@ -20,9 +20,18 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private GameObject _gameManager;
 
+    private float MouseX;
+    private float MouseY;
+    public float mouseSpeed;
+    private Rigidbody rb;
+
     private void Start()
     {
         _fishingRod.SetActive(false);
+        rb = transform.GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
+        speed = 3;
+        mouseSpeed = 20;
     }
     void Update()
     {
@@ -47,7 +56,7 @@ public class PlayerMove : MonoBehaviour
             _enabledCamera1.SetActive(true);
             _enabledCamera2.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.R) && _fishingAction == false && _wheelZone == false)
+        if (Input.GetKey(KeyCode.R) && _fishingAction == false && _fishingZone == true)
         {
             Debug.Log("Рыбалка активирована");
             _fishingAction = true;
@@ -56,7 +65,7 @@ public class PlayerMove : MonoBehaviour
             _enabledCamera2.SetActive(false);
             _enabledCamera1.SetActive(false);
         }
-        else if (Input.GetKeyDown(KeyCode.R) && _fishingAction == true && _wheelZone == false)
+        else if (Input.GetKey(KeyCode.R) && _fishingAction == true && _fishingZone == true)
         {
             Debug.Log("Рыбалка дизактивирована");
             _fishingAction = false;
@@ -79,8 +88,15 @@ public class PlayerMove : MonoBehaviour
             _enabledCamera1.SetActive(false);
 
         }
+
+
+
+        // Управление мышкой 
+        MouseX = Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
+       // MouseY = -Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime;
+        transform.rotation *= Quaternion.Euler(0, MouseX, 0); //MouseY
     }
-        void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
         {
             Debug.Log("В зоне штурвала");
             if (_wheelZone == false)
