@@ -60,11 +60,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _FresnelScale: 0.3897143
-    - _GerstnerIntensity: 1
+    - _FresnelScale: 0.1
+    - _GerstnerIntensity: -2.5
     - _HeightDisplacement: 2.3370318
     - _NormalsDisplacement: 72.72728
-    - _Shininess: 349.13794
+    - _Shininess: 500
     m_Colors:
     - _AnimationDirection: {r: 2, g: 1, b: -1, a: 1}
     - _AnimationTiling: {r: 0.4, g: 0.39099997, b: 0.56, a: 0.7}
@@ -73,19 +73,19 @@ Material:
     - _BumpTiling: {r: 0.04, g: 0.04, b: 0.04, a: 0.08}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DepthColor: {r: 0.29811764, g: 0.36611718, b: 0.39552242, a: 0.34509805}
-    - _DistortParams: {r: 1.0285715, g: 0.20187221, b: 2.766625, a: -0.41714284}
+    - _DistortParams: {r: -4, g: -0.5, b: 0.1, a: -3}
     - _Foam: {r: 0.3275862, g: 0.7471264, b: 0, a: 0}
     - _GAmplitude: {r: 0.3, g: 0.2, b: 0.25, a: 0.25}
-    - _GDirectionAB: {r: 0.85, g: 0.3, b: 0.25, a: 0.25}
-    - _GDirectionCD: {r: -0.3, g: -0.9, b: 0.5, a: 0.5}
+    - _GDirectionAB: {r: 0, g: 0, b: 0, a: 0}
+    - _GDirectionCD: {r: 0, g: 0, b: 0, a: 0}
     - _GFrequency: {r: 0.5, g: 0.25, b: 0.6, a: 0.245}
-    - _GSpeed: {r: 4, g: 2, b: 1, a: 1}
-    - _GSteepness: {r: 3.0301306, g: 1, b: 1, a: 1}
-    - _InvFadeParemeter: {r: 0.27508128, g: 0.08562102, b: 0.09414239, a: 0.48031002}
+    - _GSpeed: {r: -0.22, g: -0.62, b: 1, a: -0.85}
+    - _GSteepness: {r: 0.48, g: 1, b: 1, a: 1}
+    - _InvFadeParemeter: {r: 0.42, g: 0.08562102, b: 0.09414239, a: 1.06}
     - _ReflectionColor: {r: 0.47582978, g: 0.6064865, b: 0.6641791, a: 0.47058824}
     - _RefractionFog: {r: 0.8681778, g: 0.8797176, b: 0.8880597, a: 1}
-    - _SpecularColor: {r: 0.82089555, g: 0.80581594, b: 0.7718869, a: 1}
-    - _WorldLightDir: {r: 0.013992429, g: 0.9982467, b: -0.057518065, a: 0}
+    - _SpecularColor: {r: 0.9245283, g: 0.6163522, b: 0, a: 1}
+    - _WorldLightDir: {r: 0.013992369, g: -0.17359081, b: -0.9847186, a: 0}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6

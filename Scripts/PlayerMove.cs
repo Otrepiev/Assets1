@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
@@ -10,7 +11,9 @@ public class PlayerMove : MonoBehaviour
     private bool _wheelZone = false;
     private bool _fishingAction = false;
     public bool _fishingZone = false;
-
+    [SerializeField] private GameObject _fisher;
+    [SerializeField] private GameObject _fisherBoat;
+    
     public GameObject _parent;
     public GameObject _enabledCamera1;
     public GameObject _enabledCamera2;
@@ -24,9 +27,11 @@ public class PlayerMove : MonoBehaviour
     private float MouseY;
     public float mouseSpeed;
     private Rigidbody rb;
+   
 
     private void Start()
     {
+        _fisherBoat.SetActive(true);
         _fishingRod.SetActive(false);
         rb = transform.GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -133,8 +138,25 @@ public class PlayerMove : MonoBehaviour
                 velocity.y = Input.GetAxis("Vertical") * speed * Time.deltaTime;
                 velocity.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
                 transform.Translate(velocity.x, 0, velocity.y);
+                StartCoroutine(Walk());
             }
 
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                _fisherBoat.SetActive(false);
+                SceneManager.LoadScene(1);
+            }
         }
-    
+
+        IEnumerator Walk()
+        {
+            if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0 || Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
+                _fisher.GetComponent<Animator>().SetBool("Walking", true);
+            else 
+            {
+                yield return new WaitForSeconds(0.1f);
+                _fisher.GetComponent<Animator>().SetBool("Walking", false);
+            }
+        }
+        
 }

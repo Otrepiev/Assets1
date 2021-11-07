@@ -9,7 +9,6 @@ public class GameManagerLogical : MonoBehaviour
     public bool _plotControllerEnabled;
     public float _stamina;
     public float _water;
-    
     public Slider _staminaSlider;
     public Slider _waterSlider;
 
@@ -19,7 +18,7 @@ public class GameManagerLogical : MonoBehaviour
     _playerControllerEnabled = true;
     _plotControllerEnabled = false;
     }
-
+   
     // Update is called once per frame
     void Update()
     {
